@@ -25,7 +25,7 @@ def login(page: ft.Page):
                 width=40,
                 color="#E0F7FA",
             ),
-            bgcolor=ft.Colors.BLUE,
+            bgcolor=ft.Colors.LIGHT_BLUE_ACCENT,
             radius=40,
         ),
         shadow=ft.BoxShadow(
@@ -47,7 +47,7 @@ def login(page: ft.Page):
     user_field = ft.TextField(
         prefix_icon=ft.Icons.PERSON,
         hint_text="Type your username",
-        hint_style=ft.TextStyle(color=HINT_COLOR),
+        hint_style=ft.TextStyle(color=HINT_COLOR,font_family="Roboto"),
         border=ft.InputBorder.UNDERLINE,
         border_color=TEXT_COLOR,
         width=250,
@@ -63,14 +63,15 @@ def login(page: ft.Page):
         "Password", 
         color=TEXT_COLOR, 
         size=14,
-        weight=ft.FontWeight.W_600
+        weight=ft.FontWeight.W_600,
+        font_family="Roboto"
     )
     password_field = ft.TextField(
         prefix_icon=ft.Icon(
             name=ft.Icons.LOCK,   
         ),
         hint_text="Type your password",
-        hint_style=ft.TextStyle(color=HINT_COLOR),
+        hint_style=ft.TextStyle(color=HINT_COLOR,font_family="Roboto"),
         border=ft.InputBorder.UNDERLINE,
         password=True,
         can_reveal_password=True,
@@ -84,7 +85,8 @@ def login(page: ft.Page):
             padding=6,
             text_style=ft.TextStyle(
                 size=12,
-                weight=ft.FontWeight.W_600
+                weight=ft.FontWeight.W_600,
+                font_family="Roboto"
             )
         ),
     )
@@ -109,6 +111,7 @@ def login(page: ft.Page):
             size=16,
             weight=ft.FontWeight.BOLD,
             text_align=ft.TextAlign.CENTER,
+            font_family="Roboto"
         ),
         alignment=ft.alignment.center,
         width=250,
@@ -134,7 +137,7 @@ def login(page: ft.Page):
                 bgcolor=ft.Colors.BLACK,
                 opacity=0.6,
             ),
-            ft.Text("or", color=ft.Colors.BLACK, size=13),
+            ft.Text("or", color=ft.Colors.BLACK, size=13,font_family="Roboto"),
             ft.Container(
                 width=110,
                 height=1,
@@ -146,40 +149,63 @@ def login(page: ft.Page):
         spacing=10, 
     )
     
-    google_button = ft.ElevatedButton(
-        content=ft.CircleAvatar(
-            content=ft.Image(
-                src="assets/images/gg.png",
-                width=24,
+    google_button = ft.Container(
+        content=ft.ElevatedButton(
+            content=ft.CircleAvatar(
+                content=ft.Image(
+                    src="assets/images/gg.png",
+                    width=24,
+                ),
+                bgcolor=ft.Colors.RED
             ),
-            bgcolor=ft.Colors.RED
+            style=ft.ButtonStyle(
+                shape=ft.CircleBorder(),
+                padding=0,
+                shadow_color=ft.Colors.with_opacity(0.2, ft.Colors.BLACK),
+            ),
+            bgcolor=ft.Colors.TRANSPARENT
         ),
-        style=ft.ButtonStyle(
-            shape=ft.CircleBorder(),
-            padding=0,
-            shadow_color=ft.Colors.with_opacity(0.2, ft.Colors.BLACK),
+        shadow=ft.BoxShadow(
+            blur_radius=2,
+            color=ft.Colors.with_opacity(0.3, ft.Colors.BLACK),
+            offset=ft.Offset(0, 3)
         ),
+        border=ft.CircleBorder(),
+        border_radius=80,
+        width=40
     )
 
-    facebook_button = ft.ElevatedButton(
-        content=ft.CircleAvatar(
-            content=ft.Image(
-                src="assets/images/f.png",
-                width=30,
+    facebook_button = ft.Container(
+        content=ft.ElevatedButton(
+            content=ft.CircleAvatar(
+                content=ft.Image(
+                    src="assets/images/f.png",
+                    width=30,
+                ),
+                bgcolor=ft.Colors.BLUE
             ),
-            bgcolor=ft.Colors.BLUE
+            style=ft.ButtonStyle(
+                shape=ft.CircleBorder(),
+                padding=0,
+                # shadow_color=ft.Colors.with_opacity(0.2, ft.Colors.BLACK),
+            ),
+            bgcolor=ft.Colors.TRANSPARENT
         ),
-        style=ft.ButtonStyle(
-            shape=ft.CircleBorder(),
-            padding=0,
-            shadow_color=ft.Colors.with_opacity(0.2, ft.Colors.BLACK),
+        shadow=ft.BoxShadow(
+            blur_radius=2,
+            color=ft.Colors.with_opacity(0.3, ft.Colors.BLACK),
+            offset=ft.Offset(0, 3)
         ),
+        border=ft.CircleBorder(),
+        border_radius=80,
+        width=40
     )
 
     text_new_account = ft.Text(
         "New to Bus Booking?",
         weight=ft.FontWeight.W_600,
-        size=12
+        size=12,
+        font_family="Roboto"
     )
     
     create_account = ft.TextButton(
@@ -189,7 +215,8 @@ def login(page: ft.Page):
             padding=0,
             text_style=ft.TextStyle(
                 size=12,
-                weight=ft.FontWeight.W_600
+                weight=ft.FontWeight.W_600,
+                font_family="Roboto"
             )
         ),
     )
@@ -202,8 +229,9 @@ def login(page: ft.Page):
             ft.Text(
                 "Sign In", 
                 size=26, 
-                weight=ft.FontWeight.BOLD, 
+                weight=ft.FontWeight.BOLD,
                 color="#102542",
+                font_family="DM Sans"
             ),
             input_user,
             input_password,
