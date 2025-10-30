@@ -1,4 +1,3 @@
-from app.pages.login import login
 from app.routes import getRoute
 import flet as ft
 
